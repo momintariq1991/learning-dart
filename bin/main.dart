@@ -72,6 +72,10 @@ main(List<String> arguments) {
   print('function with named parameters: ${namedParametersFunction(a: 3, b: 7)}');
   print('function with optional positional parameters: ${getDescription('john doe', 72)}');
   print('function with optional positional parameters: ${getDescription('john doe', 87, 'melbourne')}');
+  printParameters();
+  List<int> listOfInts = [5, 9, 3];
+  listOfInts.forEach(subtractOne); // passing function as a parameter to another function
+  print('anonymous function: ${f('hello')}');
 }
 
 int doubleInt(int a) => a * 2; // one line function
@@ -89,3 +93,20 @@ String getDescription(String name, int age, [String city]) { // function with op
   if (city != null) result = '${result} also, i am from ${city}.';
   return result;
 }
+
+void printParameters({ // function with named parameters (list and map)
+  List<int> ints = const[5, 8, 2],
+  Map<String, String> greetings = const {
+    'hello': 'world',
+    'good': 'bye'
+  }
+}) {
+  print('ints: ${ints}');
+  print('greetings: ${greetings}');
+}
+
+void subtractOne(int a) {
+  print(a - 1);
+}
+
+Function f = (String text) => '${text.toUpperCase()}'; // anonymous single line function
