@@ -66,4 +66,26 @@ main(List<String> arguments) {
   for (int i in map.keys) {
     print('printing values from map: ${map[i]}');
   }
+
+  print('double of 2 is ${doubleInt(2)}');
+  print('string 1: john; string 2: doe\tis length same? ${isStringLengthSame('john', 'doe')}');
+  print('function with named parameters: ${namedParametersFunction(a: 3, b: 7)}');
+  print('function with optional positional parameters: ${getDescription('john doe', 72)}');
+  print('function with optional positional parameters: ${getDescription('john doe', 87, 'melbourne')}');
+}
+
+int doubleInt(int a) => a * 2; // one line function
+
+bool isStringLengthSame(String a, String b) { // regular function
+  return a.length == b.length;
+}
+
+int namedParametersFunction({int a, int b}) { // function with named parameters
+  return a + b;
+}
+
+String getDescription(String name, int age, [String city]) { // function with optional positional parameters
+  String result = 'my name is ${name} and i am ${age} year old.';
+  if (city != null) result = '${result} also, i am from ${city}.';
+  return result;
 }
